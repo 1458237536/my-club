@@ -1,4 +1,4 @@
-package com.yzy.auth.entity;
+package com.liang.auth.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;

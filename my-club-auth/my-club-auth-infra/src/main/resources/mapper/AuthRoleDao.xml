@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yzy.auth.basic.mapper.AuthRoleDao">
-    <resultMap type="com.yzy.auth.basic.entity.AuthRole" id="AuthRoleMap">
+<mapper namespace="com.liang.auth.basic.mapper.AuthRoleDao">
+    <resultMap type="com.liang.auth.basic.entity.AuthRole" id="AuthRoleMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
         <result property="roleKey" column="role_key" jdbcType="VARCHAR"/>

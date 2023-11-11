@@ -1,19 +1,19 @@
 spring:
   application:
-    name: yu-club-auth
+    name: my-club-auth
   profiles:
     active: dev
   cloud:
     nacos:
       config:
-        server-addr: 43.139.24.217:8848
+        server-addr: 127.0.0.1:8848
         prefix: ${spring.application.name}
         group: DEFAULT_GROUP
         namespace:
         file-extension: yaml
       discovery:
         enabled: true
-        server-addr: 43.139.24.217:8848
+        server-addr: 127.0.0.1:8848
   redis:
     # Redis数据库索引（默认为0）
     database: 1

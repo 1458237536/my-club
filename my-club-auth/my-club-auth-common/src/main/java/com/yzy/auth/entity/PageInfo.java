@@ -1,4 +1,4 @@
-package com.yzy.auth.entity;
+package com.liang.auth.entity;
 
 /**
  * 分页请求实体

@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.yzy</groupId>
-        <artifactId>yu-club-auth</artifactId>
+        <groupId>com.liang</groupId>
+        <artifactId>my-club-auth</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>yu-club-auth-starter</artifactId>
+    <artifactId>my-club-auth-starter</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -35,15 +35,15 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.yzy</groupId>
-            <artifactId>yu-club-auth-infra</artifactId>
+            <groupId>com.liang</groupId>
+            <artifactId>my-club-auth-infra</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <!-- 控制层 -->
         <dependency>
-            <groupId>com.yzy</groupId>
-            <artifactId>yu-club-auth-application-controller</artifactId>
+            <groupId>com.liang</groupId>
+            <artifactId>my-club-auth-application-controller</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

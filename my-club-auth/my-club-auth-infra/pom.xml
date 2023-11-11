@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.yzy</groupId>
-        <artifactId>yu-club-auth</artifactId>
+        <groupId>com.liang</groupId>
+        <artifactId>my-club-auth</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>yu-club-auth-infra</artifactId>
+    <artifactId>my-club-auth-infra</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -44,8 +44,8 @@
         </dependency>
         <!-- 通用层 -->
         <dependency>
-            <groupId>com.yzy</groupId>
-            <artifactId>yu-club-auth-common</artifactId>
+            <groupId>com.liang</groupId>
+            <artifactId>my-club-auth-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

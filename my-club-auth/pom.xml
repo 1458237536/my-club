@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yzy</groupId>
-    <artifactId>yu-club-auth</artifactId>
+    <groupId>com.liang</groupId>
+    <artifactId>my-club-auth</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>yu-club-auth-api</module>
-        <module>yu-club-auth-application</module>
-        <module>yu-club-auth-common</module>
-        <module>yu-club-auth-domain</module>
-        <module>yu-club-auth-infra</module>
-        <module>yu-club-auth-starter</module>
+        <module>my-club-auth-api</module>
+        <module>my-club-auth-application</module>
+        <module>my-club-auth-common</module>
+        <module>my-club-auth-domain</module>
+        <module>my-club-auth-infra</module>
+        <module>my-club-auth-starter</module>
     </modules>
 
     <properties>

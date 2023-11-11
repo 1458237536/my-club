@@ -1,4 +1,4 @@
-package com.yzy.auth.enums;
+package com.liang.auth.enums;
 
 import lombok.Getter;
 
