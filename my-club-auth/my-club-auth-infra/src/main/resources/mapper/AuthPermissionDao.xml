@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzy.auth.basic.mapper.AuthPermissionDao">
+    <resultMap type="com.yzy.auth.basic.entity.AuthPermission" id="AuthPermissionMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="parentId" column="parent_id" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="menuUrl" column="menu_url" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="showStatus" column="`show_status`" jdbcType="VARCHAR"/>
+        <result property="icon" column="lcon" jdbcType="VARCHAR"/>
+        <result property="permissionKey" column="prmission_key" jdbcType="VARCHAR"/>
+        <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="updated_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="updated_time" jdbcType="TIMESTAMP"/>
+        <result property="isDeleted" column="is_deleted" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into auth_permission(name, parent_id, type, menu_url, status, `show_status`, icon, permission_key,
+                                    created_by,
+                                    created_time, update_by, update_time, is_deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.parentId}, #{entity.type}, #{entity.menuUrl}, #{entity.status},
+             #{entity.showStatus},
+             #{entity.icon}, #{entity.permissionKey}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy},
+             #{entity.updateTime}, #{entity.isDeleted})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into auth_permission(name, parent_id, type, menu_url, status, show_status, icon, permission_key, created_by,
+        created_time, update_by, update_time, is_deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.parentId}, #{entity.type}, #{entity.menuUrl}, #{entity.status}, #{entity.showStatus},
+            #{entity.icon}, #{entity.permissionKey}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy},
+            #{entity.updateTime}, #{entity.isDeleted})
+        </foreach>
+        on duplicate key update
+        name = values(name) , parent_id = values(parent_id) , type = values(type) , menu_url = values(menu_url) , status
+        = values(status) , show_status = values(show_status) , icon = values(icon) , permission_key = values(permission_key) ,
+        created_by = values(created_by) , created_time = values(created_time) , update_by = values(update_by) ,
+        update_time = values(update_time) , is_deleted = values(is_deleted)
+    </insert>
+</mapper>
+

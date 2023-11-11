@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzy.auth.basic.mapper.AuthRoleDao">
+    <resultMap type="com.yzy.auth.basic.entity.AuthRole" id="AuthRoleMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
+        <result property="roleKey" column="role_key" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="dataRange" column="data_range" jdbcType="VARCHAR"/>
+        <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDeleted" column="is_deleted" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into auth_role(role_name, role_key, status, data_range, created_by, created_time, update_by, update_time,
+                              is_deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.roleName}, #{entity.roleKey}, #{entity.status}, #{entity.dataRange}, #{entity.createdBy},
+             #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into auth_role(role_name, role_key, status, data_range, created_by, created_time, update_by, update_time,
+                              is_deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.roleName}, #{entity.roleKey}, #{entity.status}, #{entity.dataRange},
+             #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime},
+             #{entity.isDeleted})
+        </foreach>
+        on duplicate key update role_name    = values(role_name),
+                                role_key     = values(role_key),
+                                status       = values(status),
+                                data_range   = values(data_range),
+                                created_by   = values(created_by),
+                                created_time = values(created_time),
+                                update_by    = values(update_by),
+                                update_time  = values(update_time),
+                                is_deleted   = values(is_deleted)
+    </insert>
+
+    <!-- 条件查询 -->
+    <select id="queryAllByLimit" resultMap="AuthRoleMap">
+        select id,
+               role_name,
+               role_key,
+               created_by,
+               created_time,
+               update_by,
+               update_time,
+               is_deleted
+        from auth_role
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="roleName != null and roleName != ''">
+                and role_name = #{roleName}
+            </if>
+            <if test="roleKey != null and roleKey != ''">
+                and role_key = #{roleKey}
+            </if>
+            <if test="createdBy != null and createdBy != ''">
+                and created_by = #{createdBy}
+            </if>
+            <if test="createdTime != null">
+                and created_time = #{createdTime}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
+            </if>
+        </where>
+    </select>
+</mapper>
+
